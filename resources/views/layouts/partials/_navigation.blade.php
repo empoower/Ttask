@@ -17,22 +17,13 @@
 
             <div class="form-group">
                 <label for="language">Language:</label>
-                <?php
-                $language = $_COOKIE["language"];
-                ?>
                 <select class="form-control search-language" name="language" id="language">
                     @foreach(\App\Flickr::getLanguages() as $key=>$languageStr)
-                        <option value="{{$key}}" <?=($language == $key) ? 'selected' : ''?>>{{ $languageStr }}</option>
+                        <option value="{{$key}}"
+                                @if(isset($_COOKIE["language"]) && $_COOKIE["language"] == $key)  selected @endif >{{ $languageStr }}</option>
                     @endforeach
                 </select>
-                <script type="text/javascript">
 
-                    //                    $("#language").select2({
-                    //                        closeOnSelect: true,
-                    //                        selectOnBlur:true,
-                    //                        selectOnClose: true,
-                    //                    });
-                </script>
             </div>
 
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
