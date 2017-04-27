@@ -40,6 +40,7 @@
                         closeOnSelect: true,
                         selectOnBlur: true,
                         selectOnClose: true,
+                        maximumInputLength: 30,
                         "language": {
                             "noResults": function () {
                                 return "Please enter some tags";
